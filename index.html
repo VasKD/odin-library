@@ -40,14 +40,18 @@
 
 
         <div class="nav">
-            <img src="./img/magnify.svg" alt="search icon">
-            <form id="searchForm" action="" method="post">
-                <input type="text" id="search" name="search" placeholder="Search">
-                <button type="submit">Submit</button>
-            </form>
-            <img src="./img/email-alert-outline.svg" alt="message icon">
-            <img src="./img/bell-ring-outline.svg" alt="bell icon">
-            <img src="./img/account-group-outline.svg" alt="friends icon">
+            <div class="search">
+                <img src="./img/magnify.svg" alt="search icon">
+                <form id="searchForm" action="" method="post">
+                    <input type="text" id="search" name="search" placeholder="Search">
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+            <div class="icons">
+                <img src="./img/email-alert-outline.svg" alt="message icon">
+                <img src="./img/bell-ring-outline.svg" alt="bell icon">
+                <img src="./img/account-group-outline.svg" alt="friends icon">
+            </div>
 
         </div>
         <div class="sidebar-wrapper">
@@ -70,9 +74,22 @@
 
         <div class="main-wrapper">
             <p>LIBRARY</p>
-            <div class="cards">
-                <div>Card 1</div>
-                <div>Card 2</div>
+            <div id="cards">
+                <div class="card">
+                    <img src="./img/loveHypothesis.png" alt="book cover">
+                    <div class="content">
+                        <p class="title">The Love Hypothesis</p>
+                        <p class="author">Ali Hazelwood</p>
+                        <hr>
+                        <p class="description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere ab accusantium nesciunt ut doloribus molli...</p>
+                        <div class="bottom">
+                            <p class="pageNum"># 432</p>
+                            <button class="read">Read</button>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- <div class="card">Card 2</div> -->
             </div>
         </div>
     </div>
