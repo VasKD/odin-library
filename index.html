@@ -8,9 +8,43 @@
 </head>
 <body>
     <div class="wrapper">
+
+        <!-- Modal for new book entry -->
+        <dialog id="newBookModal">
+            <p>Hello, this is a modal</p>
+            <button id="exit">Exit</button>
+            <form id="bookEntry" action="" method="post">
+                <label for="title">*Title</label>
+                <input type="text" id="title" name="title" required>
+
+                <label for="author">*Author</label>
+                <input type="text" id="author" name="author" required>
+
+                <label for="pageNum">*Number of Pages</label>
+                <input type="number" id="pageNum" name="pageNum" required>
+
+                <label for="cover">*Cover URL</label>
+                <input type="url" id="cover" name="cover" required>
+
+                <label for="description">*Description</label>
+                <textarea name="description" id="description" maxlength="200" required></textarea>
+
+                <div class="checkbox">
+                    <label for="read">Read?</label>
+                    <input type="checkbox" id="read" name="read">
+                </div>
+
+                <button type="submit" id="submitBook">Submit</button>
+            </form>
+        </dialog>
+
+
         <div class="nav">
             <img src="./img/magnify.svg" alt="search icon">
-            <input type="text" placeholder="Search">
+            <form id="searchForm" action="" method="post">
+                <input type="text" id="search" name="search" placeholder="Search">
+                <button type="submit">Submit</button>
+            </form>
             <img src="./img/email-alert-outline.svg" alt="message icon">
             <img src="./img/bell-ring-outline.svg" alt="bell icon">
             <img src="./img/account-group-outline.svg" alt="friends icon">
@@ -23,10 +57,10 @@
             </div>
             <div class="btns">
                 <ul>
-                    <li><button>Home</button></li>
-                    <li><button>ADD A BOOK</button></li>
-                    <li><button>COMPLETED</button></li>
-                    <li><button>TO BE READ</button></li>
+                    <li><button class="home">Home</button></li>
+                    <li><button class="addBook">ADD A BOOK</button></li>
+                    <li><button class="completed">COMPLETED</button></li>
+                    <li><button class="toBeRead">TO BE READ</button></li>
                 </ul>
             </div>
             <div class="sidebar-footer">
@@ -42,7 +76,6 @@
             </div>
         </div>
     </div>
-    <!-- <button class="create">Create</button> -->
 
     <script src="index.js"></script>
 </body>

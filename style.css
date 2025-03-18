@@ -3,9 +3,14 @@
     padding: 0;
 }
 
+body {
+    display: flex;   
+}
+
 .wrapper {
     display: grid;
     height: 100vh;
+    width: 100vw;
     grid-template-columns: 260px auto;
     grid-template-rows: 160px auto;
 }
@@ -50,4 +55,28 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
+}
+
+
+#newBookModal {
+    position: absolute;
+    margin: auto;
+    width: fit-content;
+    align-self: center;
+    width: 50%;
+    height: 50%;
+    padding: 20px;
+    overflow: auto;
+    border-radius: 20px;
+}
+
+#newBookModal form {
+    display: flex;
+    flex-direction: column;
+}
+
+#exit {
+    position: absolute;
+    right: 15px;
+    top: 15px;
 }
