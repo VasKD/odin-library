@@ -8,7 +8,9 @@ const createBtn = document.getElementById("addBook");
 const modalExit = document.getElementById("exit");
 const submitBook = document.getElementById("submitBook");
 const cardsContainer = document.getElementById("cards");
-
+const completedButton = document.getElementById("completed");
+const toBeReadButton = document.getElementById("toBeRead");
+const homeButton = document.getElementById("home");
 
 
 
@@ -221,11 +223,30 @@ function validateURL (cover) {
 }   
 
 
-function displayBooks () {
+function displayBooks (str ="") {
     cardsContainer.innerHTML = ""; // clear cards before displaying again
-    for (const book of myLibrary){
-        addCard(book);
+    
+    if (str === "completed") {
+        console.log("HELLO PEOPLE");
+        const completedBooks = myLibrary.filter(book => book.read === true);
+        console.log(completedBooks);
+        for (const book of completedBooks){
+            addCard(book);
+        } 
+    } else if (str === "toBeRead") {
+        console.log("goodbye");
+        const toBeReadBooks = myLibrary.filter(book => book.read === false);
+        console.log(toBeReadBooks);
+        for (const book of toBeReadBooks){
+            addCard(book);
+        } 
+    } else {
+        for (const book of myLibrary){
+            addCard(book);
+        }    
     }
+    
+    
 }
 
 
@@ -235,12 +256,34 @@ function displayBooks () {
 // *  Event listeners  *
 // *********************  
 
-// open modal
-createBtn.addEventListener("click", (e) => {
+
+// display books that have been read
+completedButton.addEventListener("click", () => {
+    console.log("yoi");
+    displayBooks("completed");
+});
+
+
+// display books yet to be read
+toBeReadButton.addEventListener("click", () => {
+    console.log("yuh");
+    displayBooks("toBeRead");
+});
+
+
+// display all books at home page
+homeButton.addEventListener("click", () => {
+    console.log("I'm home!!");
+    displayBooks();
+});
+
+
+// open add book modal
+createBtn.addEventListener("click", () => {
     modal.showModal();
 });
 
-// close modal
+// close add book modal
 modalExit.addEventListener("click", (e) => {
     e.preventDefault();
     modal.close();
@@ -269,7 +312,7 @@ bookEntry.addEventListener("submit", (e) => {
 
 
 // handle a change in read status
-document.addEventListener("click", function(e) {
+document.addEventListener("click", (e) => {
     if (e.target.matches("button.read")){
         console.log("Hurrah!! " + e.target.textContent);
         let parentCard = e.target.closest(".card");
@@ -289,15 +332,12 @@ document.addEventListener("click", function(e) {
     }
 });
 
-
-document.addEventListener("click", function(e) {
+// delete respective card and display updated library
+document.addEventListener("click", (e) => {
     if (e.target.closest("button.delete")) {
-        console.log("KAKAKAK!!");
         let parentCard = e.target.closest(".card");
         const bookObject = myLibrary.findIndex((bookObject) => bookObject.id === parentCard.id);
-        console.log(myLibrary[bookObject]);
         myLibrary.splice(bookObject, 1);
-        console.log(myLibrary);
         displayBooks();
     }
 });
