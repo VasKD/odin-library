@@ -4,7 +4,7 @@
 
 const myLibrary = [];
 const modal = document.getElementById("newBookModal");
-const createBtn = document.querySelector(".addBook");
+const createBtn = document.getElementById("addBook");
 const modalExit = document.getElementById("exit");
 const submitBook = document.getElementById("submitBook");
 const cardsContainer = document.getElementById("cards");

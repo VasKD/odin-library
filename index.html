@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bookworm</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Squada One Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dangrek&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inconsolata:wght@200..900&family=Jersey+10&family=Kanit&family=Londrina+Sketch&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&family=Squada+One&family=Tilt+Neon&display=swap" rel="stylesheet">
+    <!-- Poppins Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dangrek&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inconsolata:wght@200..900&family=Jersey+10&family=Kanit&family=Londrina+Sketch&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Squada+One&family=Tilt+Neon&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="wrapper">
@@ -44,7 +52,6 @@
                 <img src="./img/magnify.svg" alt="search icon">
                 <form id="searchForm" action="" method="post">
                     <input type="text" id="search" name="search" placeholder="Search">
-                    <button type="submit">Submit</button>
                 </form>
             </div>
             <div class="icons">
@@ -52,33 +59,39 @@
                 <img src="./img/bell-ring-outline.svg" alt="bell icon">
                 <img src="./img/account-group-outline.svg" alt="friends icon">
             </div>
-
         </div>
         <div class="sidebar-wrapper">
-            <div class="title">
+            <div id="title">
                 <img src="./img/candy-worm-svgrepo-com.svg" alt="worm icon">
                 <p>Bookworm</p>
             </div>
             <div class="btns">
                 <ul>
-                    <li><button class="home">Home</button></li>
-                    <li><button class="addBook">ADD A BOOK</button></li>
-                    <li><button class="completed">COMPLETED</button></li>
-                    <li><button class="toBeRead">TO BE READ</button></li>
+                    <li class="highlight"><button id="home" class="clicked"><img src="./img/house-chimney-blank-svgrepo-com.svg" alt="home icon">HOME</button></li>
+                    <li><button id="addBook"><img src="./img/add-plus-circle-svgrepo-com.svg" alt="add icon">ADD A BOOK</button></li>
+                    <li><button id="completed"><img src="./img/book-svgrepo-com.svg" alt="closed book icon">COMPLETED</button></li>
+                    <li><button id="toBeRead"><img src="./img/book-open-svgrepo-com.svg" alt="open book icon">TO BE READ</button></li>
                 </ul>
             </div>
             <div class="sidebar-footer">
-                <p>Kiara</p>
+                <div class="user">
+                    <img src="./img/person-circle.svg" alt="profile icon">
+                    <p>Kiara</p>
+                </div>
+                <div class="icons">
+                    <img src="./img/info-circle.svg" alt="info icon">
+                    <img src="./img/gear.svg" alt="settings icon">
+                </div>
             </div>
         </div>
 
         <div class="main-wrapper">
-            <p>LIBRARY</p>
+            <p class="library-header">LIBRARY</p>
             <div id="cards">
                 <div class="card">
                     <img src="./img/loveHypothesis.png" alt="book cover">
                     <div class="content">
-                        <p class="title">The Love Hypothesis</p>
+                        <p class="title">THE LOVE HYPOTHESIS</p>
                         <p class="author">Ali Hazelwood</p>
                         <hr>
                         <p class="description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere ab accusantium nesciunt ut doloribus molli...</p>
