@@ -40,6 +40,11 @@ function Books(id, title, author, pageNum, cover, description, read){
 // *  Functions  *
 // ***************
 
+
+
+
+
+
 // add books to library
 function addBookToLibrary(title, author, pageNum, cover, description, read) {
     
@@ -63,6 +68,7 @@ function addCard(bookObject) {
     // create card container
     const card = document.createElement("div");
     card.classList.add("card");
+    card.id = bookObject.id;
 
     // create image element for cover
     const cover = document.createElement("img");
@@ -253,5 +259,47 @@ bookEntry.addEventListener("submit", (e) => {
         addBookToLibrary(title, author, pageNum, cover, description, read);
     }
     bookEntry.reset(); // clear form after submission
+});
+
+
+// const readButtons = document.querySelectorAll("button.read");
+// readButtons.forEach((readButton) => {
+//     readButton.addEventListener("click", (e) => {
+//     let parentCard = e.currentTarget.closest(".card");
+//     console.log(parentCard.id);
+//     console.log(readButton.textContent);
+//     if (readButton.textContent == "Read"){
+//         readButton.textContent = "Not Read";
+//         readButton.style.color = "#dda15e";
+        
+//         console.log(e.currentTarget.closest(".card"));
+        
+//     } else if (readButton.textContent == "Not Read") {
+//         readButton.textContent = "Read";
+//         readButton.style.color = "#606c38";
+//     }
+//     });
+
+// });
+
+
+document.addEventListener("click", function(e) {
+    if (e.target.matches("button.read")){
+        console.log("Hurrah!! " + e.target.textContent);
+        let parentCard = e.target.closest(".card");
+        const bookObject = myLibrary.find((bookObject) => bookObject.id = parentCard.id);
+        console.log(parentCard.id);
+        if (e.target.textContent == "Read") {
+            e.target.textContent = "Not Read";
+            e.target.style.color = "#dda15e";
+            bookObject.read = false;
+        } else if (e.target.textContent == "Not Read") {
+            e.target.textContent = "Read";
+            e.target.style.color = "#606c38";
+            bookObject.read = true;
+        }
+        console.log(bookObject.info());
+
+    }
 });
 
