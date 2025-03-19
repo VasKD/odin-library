@@ -41,10 +41,6 @@ function Books(id, title, author, pageNum, cover, description, read){
 // ***************
 
 
-
-
-
-
 // add books to library
 function addBookToLibrary(title, author, pageNum, cover, description, read) {
     
@@ -59,8 +55,16 @@ function addBookToLibrary(title, author, pageNum, cover, description, read) {
     console.log(myLibrary[myLibrary.length - 1].info());
     displayBooks();
     console.log("A new book has been added to your library! " + newBook.title + " by " + newBook.author);
-
 }
+ 
+
+// add default card
+addBookToLibrary("The Love Hypothesis", 
+    "Ali Hazelwood", 
+    432, 
+    "./img/loveHypothesis.png", 
+    'A witty STEM romance about Ph.D. student Olive Smith, who fakes a relationship with grumpy professor Adam Carlsen to convince her friend she is over an ex. What starts as a harmless ruse soon sparks real chemistry, leading to unexpected love amidst academia and emotional growth.', true
+);
 
 
 // add card to grid
@@ -146,6 +150,7 @@ function addCard(bookObject) {
         read.textContent = "Read";
     } else {
         read.textContent = "Not Read"
+        read.style.color = "#dda15e";
     }
     btns.appendChild(read);
 
@@ -217,8 +222,9 @@ function validateURL (cover) {
 
 
 function displayBooks () {
+    cardsContainer.innerHTML = ""; // clear cards before displaying again
     for (const book of myLibrary){
-        console.log(book.info());
+        addCard(book);
     }
 }
 
@@ -262,32 +268,12 @@ bookEntry.addEventListener("submit", (e) => {
 });
 
 
-// const readButtons = document.querySelectorAll("button.read");
-// readButtons.forEach((readButton) => {
-//     readButton.addEventListener("click", (e) => {
-//     let parentCard = e.currentTarget.closest(".card");
-//     console.log(parentCard.id);
-//     console.log(readButton.textContent);
-//     if (readButton.textContent == "Read"){
-//         readButton.textContent = "Not Read";
-//         readButton.style.color = "#dda15e";
-        
-//         console.log(e.currentTarget.closest(".card"));
-        
-//     } else if (readButton.textContent == "Not Read") {
-//         readButton.textContent = "Read";
-//         readButton.style.color = "#606c38";
-//     }
-//     });
-
-// });
-
-
+// handle a change in read status
 document.addEventListener("click", function(e) {
     if (e.target.matches("button.read")){
         console.log("Hurrah!! " + e.target.textContent);
         let parentCard = e.target.closest(".card");
-        const bookObject = myLibrary.find((bookObject) => bookObject.id = parentCard.id);
+        const bookObject = myLibrary.find((bookObject) => bookObject.id === parentCard.id);
         console.log(parentCard.id);
         if (e.target.textContent == "Read") {
             e.target.textContent = "Not Read";
@@ -300,6 +286,19 @@ document.addEventListener("click", function(e) {
         }
         console.log(bookObject.info());
 
+    }
+});
+
+
+document.addEventListener("click", function(e) {
+    if (e.target.closest("button.delete")) {
+        console.log("KAKAKAK!!");
+        let parentCard = e.target.closest(".card");
+        const bookObject = myLibrary.findIndex((bookObject) => bookObject.id === parentCard.id);
+        console.log(myLibrary[bookObject]);
+        myLibrary.splice(bookObject, 1);
+        console.log(myLibrary);
+        displayBooks();
     }
 });
 
