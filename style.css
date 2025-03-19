@@ -222,8 +222,42 @@ p.library-header {
     border-radius: 18px;
     border-right: 10px solid #606c38;
     padding-left: 10px;
-    padding-right: 30px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.359);
+}
+
+
+.content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.top {
+    flex-grow: 1;
+    padding-top: 16px;
+    padding-left: 10px;
+    padding-right: 25px;
+
+}
+
+
+/* CONTENT STYLING */
+
+.card p.title {
+    font-size: 28px;
+}
+
+.card p.author, p.description {
+    font-family: "Poppins", sans-serif;
+}
+
+.card p.description {
+    font-size: 14px;
+}
+
+div.description {
+    height: 150px;
+    overflow-y: auto;
 }
 
 hr {
@@ -236,14 +270,50 @@ hr {
     border-radius: 15px;
 }
 
-.content {
+
+/* CARD BOTTOM STYLING */
+
+.bottom {
+    font-family: "Poppins", sans-serif;
     display: flex;
-    flex-direction: column;
-    padding: 13px 20px;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 16px;
+    padding-left: 10px;
+
 }
 
-div.bottom {
+.bottom button {
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    font-weight: 450;
+    color: #606c38;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.bottom .pageNum {
     display: flex;
-    margin-top: auto;
-    gap:60px;
+    align-items: center;
+    gap: 5px;
+}
+
+.bottom .pageNum img {
+    width: 25px;
+    padding: 0;
+    border: 2px solid black;
+    border-radius: 3px;
+    scale: 0.8;
+}
+
+.bottom button img {
+    width: 30px;
+}
+
+.bottom .buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
 }

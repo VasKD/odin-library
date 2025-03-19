@@ -73,31 +73,44 @@ function addCard(bookObject) {
     const contentContainer = document.createElement("div");
     contentContainer.classList.add("content");
 
+    // create container for top 
+    const topContainer = document.createElement("div");
+    topContainer.classList.add("top");
+
     // add title of book
     const title = document.createElement("p");
     title.classList.add("title");
     title.textContent = bookObject.title;
     console.log(title.textContent);
-    contentContainer.appendChild(title);
+    topContainer.appendChild(title);
 
     // add author of book
     const author = document.createElement("p");
     author.classList.add("author");
     author.textContent = bookObject.author;
     console.log(author.textContent);
-    contentContainer.appendChild(author);
+    topContainer.appendChild(author);
 
     // add divider line
     const divider = document.createElement("hr");
     console.log(divider);
-    contentContainer.appendChild(divider);
+    topContainer.appendChild(divider);
+
+    const descContainer = document.createElement("div");
+    descContainer.classList.add("description");
 
     // add description of book
     const description = document.createElement("p");
-    description.classList.add("author");
+    description.classList.add("description");
     description.textContent = bookObject.description;
     console.log(description.textContent);
-    contentContainer.appendChild(description);
+    descContainer.appendChild(description);
+
+    // add desc container to top
+    topContainer.appendChild(descContainer);
+
+    // add top container to  content
+    contentContainer.appendChild(topContainer);
 
     // add bottom portion of card
     const bottom = document.createElement("div");
@@ -107,8 +120,18 @@ function addCard(bookObject) {
     // add page number
     const pageNum = document.createElement("p");
     pageNum.classList.add("pageNum");
-    pageNum.textContent = "# " + bookObject.pageNum;
+    const hashtag = document.createElement("img");
+    hashtag.src = "./img/hashtag-svgrepo-com (1).svg";
+    hashtag.alt = "hashtag icon";
+    // Create the text node for the page number
+    const pageText = document.createTextNode(`${bookObject.pageNum}`);
+    pageNum.appendChild(hashtag);
+    pageNum.appendChild(pageText);
     bottom.appendChild(pageNum);
+
+    // add buttons container
+    const btns = document.createElement("div");
+    btns.classList.add("buttons");
 
     // add read button
     const read = document.createElement("button");
@@ -118,7 +141,19 @@ function addCard(bookObject) {
     } else {
         read.textContent = "Not Read"
     }
-    bottom.appendChild(read);
+    btns.appendChild(read);
+
+    // add trash icon
+    const del = document.createElement("button");
+    del.classList.add("delete");
+    const trashCan = document.createElement("img");
+    trashCan.src = "./img/trash-svgrepo-com.svg";
+    trashCan.alt = "trash icon";
+    del.appendChild(trashCan);
+    btns.appendChild(del);
+
+    bottom.appendChild(btns);
+    contentContainer.appendChild(bottom);
 
 
     // add card to the DOM
