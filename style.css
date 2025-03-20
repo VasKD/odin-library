@@ -131,15 +131,15 @@ div.checkbox {
 .nav > .search {
     display: flex;
     align-items: center;
-    margin-right: 140px;
+    margin-right: 110px;
 }
 
 input#search {
     background-color: #e0e0e0;
     border: none;
     border-radius: 20px;
-    height: 25px;
-    width: 500px;
+    height: 28px;
+    width: 550px;
     padding-left: 10px;
 }
 

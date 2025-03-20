@@ -249,6 +249,21 @@ function displayBooks (str ="") {
     
 }
 
+function addHighlight(toBeHighlighted, toBeInverted) {
+    console.log("Im confused T^T");
+
+    // retrieve container and button currently highlighted / inverted 
+    const highlighted = document.getElementsByClassName("highlight");
+    const clicked = document.getElementsByClassName("clicked");
+
+    // remove the classes to remove styling 
+    highlighted[0].classList.remove("highlight");
+    clicked[0].classList.remove("clicked");
+
+    // highlight and invert button that was clicked
+    toBeHighlighted.classList.add("highlight");
+    toBeInverted.classList.add("clicked");
+}
 
 
 
@@ -258,29 +273,34 @@ function displayBooks (str ="") {
 
 
 // display books that have been read
-completedButton.addEventListener("click", () => {
+completedButton.addEventListener("click", (e) => {
     console.log("yoi");
     displayBooks("completed");
+    addHighlight(e.target.closest("li"), e.target.closest("button"));
 });
 
 
 // display books yet to be read
-toBeReadButton.addEventListener("click", () => {
+toBeReadButton.addEventListener("click", (e) => {
     console.log("yuh");
     displayBooks("toBeRead");
+    addHighlight(e.target.closest("li"), e.target.closest("button"));
 });
 
 
 // display all books at home page
-homeButton.addEventListener("click", () => {
+homeButton.addEventListener("click", (e) => {
     console.log("I'm home!!");
     displayBooks();
+    addHighlight(e.target.closest("li"), e.target.closest("button"));
 });
 
 
 // open add book modal
-createBtn.addEventListener("click", () => {
+createBtn.addEventListener("click", (e) => {
+    console.log(e.target.closest("li"));
     modal.showModal();
+    addHighlight(e.target.closest("li"), e.target.closest("button"));
 });
 
 // close add book modal
@@ -325,7 +345,7 @@ document.addEventListener("click", (e) => {
         } else if (e.target.textContent == "Not Read") {
             e.target.textContent = "Read";
             e.target.style.color = "#606c38";
-            bookObject.read = true;
+            bookObject.read = true;            
         }
         console.log(bookObject.info());
 
