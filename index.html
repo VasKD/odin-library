@@ -18,9 +18,9 @@
     <div class="wrapper">
 
         <!-- Modal for new book entry -->
-        <dialog id="newBookModal">
-            <p>Hello, this is a modal</p>
-            <button id="exit">Exit</button>
+        <dialog id="newBookModal" open>
+            <p class="modal-title">Create a New Book Entry</p>
+            <button id="exit"><img src="./img/circle-xmark-svgrepo-com.svg" alt="exit icon"></button>
             <form id="bookEntry" action="" method="post">
                 <label for="title">*Title</label>
                 <input type="text" id="title" name="title" required>
@@ -61,6 +61,8 @@
             </div>
 
         </div>
+
+
         <div class="sidebar-wrapper">
             <div id="title">
                 <img src="./img/candy-worm-svgrepo-com.svg" alt="worm icon">

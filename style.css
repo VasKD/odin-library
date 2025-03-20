@@ -27,24 +27,80 @@ body {
     margin: auto;
     width: fit-content;
     align-self: center;
+    z-index: 1;
     width: 40%;
-    height: 50%;
-    padding: 40px;
+    height: 66%;
+    padding: 0 40px 20px 40px;
     overflow: auto;
-    border-radius: 20px;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+#newBookModal .modal-title{
+    font-family: "Squada One", sans-serif;
+    font-size: 30px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+#newBookModal input {
+    height: 22px;
+    border-radius: 6px;
+    border: none;
+    background-color: #e0e0e0;
+    margin-bottom: 10px;
+}
+
+#newBookModal textarea {
+    height: 60px;
+    border-radius: 6px;
+    border: none;
+    background-color: #e0e0e0;
 }
 
 #newBookModal form {
+    font-family: "Poppins", sans-serif;
     display: flex;
     flex-direction: column;
 }
 
 #exit {
     position: absolute;
-    right: 15px;
-    top: 15px;
+    right: 8px;
+    top: 8px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
 }
 
+#exit img {
+    padding: 0;
+}
+
+input#read {
+    margin: 0;
+    scale: 1.2;
+    cursor: pointer;
+}
+
+div.checkbox {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    gap: 8px;
+}
+
+#submitBook {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    border: none;
+    background-color: #e0e0e0;
+    border-radius: 15px;
+    padding: 10px;
+    width: 80px;
+    align-self: center;
+    cursor: pointer;
+}
 
 
 
