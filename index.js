@@ -60,12 +60,21 @@ function addBookToLibrary(title, author, pageNum, cover, description, read) {
 }
  
 
-// add default card
+// add default cards
 addBookToLibrary("The Love Hypothesis", 
     "Ali Hazelwood", 
     432, 
     "./img/loveHypothesis.png", 
     'A witty STEM romance about Ph.D. student Olive Smith, who fakes a relationship with grumpy professor Adam Carlsen to convince her friend she is over an ex. What starts as a harmless ruse soon sparks real chemistry, leading to unexpected love amidst academia and emotional growth.', true
+);
+
+
+addBookToLibrary("One Dark Window",
+    "Rachel Gillig",
+    399,
+    "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1734440714i/58340706.jpg",
+    'Elspeth needs a monster. The monster might be her. Elspeth Spindle needs more than luck to stay safe in the eerie, mist-locked kingdom of Blunder—she needs a monster. She calls him the Nightmare, an ancient, mercurial spirit trapped in her head. He protects her. He keeps her secrets.But nothing comes for free, especially magic.',
+    false
 );
 
 
