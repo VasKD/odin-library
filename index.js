@@ -78,7 +78,7 @@ addBookToLibrary("One Dark Window",
 );
 
 
-// add card to grid
+// create card structure and add card to grid
 function addCard(bookObject) {
     // create card container
     const card = document.createElement("div");
@@ -141,9 +141,12 @@ function addCard(bookObject) {
     // add page number
     const pageNum = document.createElement("p");
     pageNum.classList.add("pageNum");
+
+    // add hashtag icon
     const hashtag = document.createElement("img");
     hashtag.src = "./img/hashtag-svgrepo-com (1).svg";
     hashtag.alt = "hashtag icon";
+
     // Create the text node for the page number
     const pageText = document.createTextNode(`${bookObject.pageNum}`);
     pageNum.appendChild(hashtag);
@@ -174,14 +177,13 @@ function addCard(bookObject) {
     del.appendChild(trashCan);
     btns.appendChild(del);
 
+    // add card to the DOM
     bottom.appendChild(btns);
     contentContainer.appendChild(bottom);
-
-
-    // add card to the DOM
     card.appendChild(contentContainer);
     cardsContainer.appendChild(card);
 }
+
 
 // validate form values
 function validateInfo (title, author, pageNum, cover) {
@@ -236,16 +238,14 @@ function displayBooks (str ="") {
     cardsContainer.innerHTML = ""; // clear cards before displaying again
     
     if (str === "completed") {
-        console.log("HELLO PEOPLE");
         const completedBooks = myLibrary.filter(book => book.read === true);
-        console.log(completedBooks);
+        // console.log(completedBooks);
         for (const book of completedBooks){
             addCard(book);
         } 
     } else if (str === "toBeRead") {
-        console.log("goodbye");
         const toBeReadBooks = myLibrary.filter(book => book.read === false);
-        console.log(toBeReadBooks);
+        // console.log(toBeReadBooks);
         for (const book of toBeReadBooks){
             addCard(book);
         } 
@@ -253,14 +253,12 @@ function displayBooks (str ="") {
         for (const book of myLibrary){
             addCard(book);
         }    
-    }
-    
-    
+    }   
 }
 
-function addHighlight(toBeHighlighted, toBeInverted) {
-    console.log("Im confused T^T");
 
+// highlight buttons clicked on the sidebar
+function addHighlight(toBeHighlighted, toBeInverted) {
     // retrieve container and button currently highlighted / inverted 
     const highlighted = document.getElementsByClassName("highlight");
     const clicked = document.getElementsByClassName("clicked");
@@ -283,7 +281,6 @@ function addHighlight(toBeHighlighted, toBeInverted) {
 
 // display books that have been read
 completedButton.addEventListener("click", (e) => {
-    console.log("yoi");
     displayBooks("completed");
     addHighlight(e.target.closest("li"), e.target.closest("button"));
 });
@@ -291,7 +288,6 @@ completedButton.addEventListener("click", (e) => {
 
 // display books yet to be read
 toBeReadButton.addEventListener("click", (e) => {
-    console.log("yuh");
     displayBooks("toBeRead");
     addHighlight(e.target.closest("li"), e.target.closest("button"));
 });
@@ -299,7 +295,6 @@ toBeReadButton.addEventListener("click", (e) => {
 
 // display all books at home page
 homeButton.addEventListener("click", (e) => {
-    console.log("I'm home!!");
     displayBooks();
     addHighlight(e.target.closest("li"), e.target.closest("button"));
 });
@@ -343,10 +338,14 @@ bookEntry.addEventListener("submit", (e) => {
 // handle a change in read status
 document.addEventListener("click", (e) => {
     if (e.target.matches("button.read")){
-        console.log("Hurrah!! " + e.target.textContent);
+        // find the parent card of the button
         let parentCard = e.target.closest(".card");
+
+        // retrieve the object with the same book ID
         const bookObject = myLibrary.find((bookObject) => bookObject.id === parentCard.id);
-        console.log(parentCard.id);
+        // console.log(parentCard.id);
+
+        // change the status on the card and update the associated object
         if (e.target.textContent == "Read") {
             e.target.textContent = "Not Read";
             e.target.style.color = "#dda15e";
@@ -356,10 +355,11 @@ document.addEventListener("click", (e) => {
             e.target.style.color = "#606c38";
             bookObject.read = true;            
         }
-        console.log(bookObject.info());
+        // console.log(bookObject.info());
 
     }
 });
+
 
 // delete respective card and display updated library
 document.addEventListener("click", (e) => {
