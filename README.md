@@ -21,6 +21,4 @@ The user can see certain books based on the reading status indicated on the card
 ## Author
 Kiara Vasquez 
 
-[LinkedIn](www.linkedin.com/in/kiara-vasquez)
-
 ![image](https://github.com/user-attachments/assets/db780ca3-d547-46a5-8f7f-50f46f8528eb)
